@@ -4,13 +4,7 @@
 
 ## Usage
 
-```
-docker create \
---name=tenma \
--v </path/to/comic/library>:/files \
--p 8000:8000 \
-hmhrex/tenma
-```
+`docker create --name=tenma -v </path/to/comic/library>:/files -p 8000:8000 hmhrex/tenma`
 
 ## Parameters
 
