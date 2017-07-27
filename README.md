@@ -4,11 +4,11 @@
 
 ## Usage
 
-`docker create --name=tenma -v </path/to/comic/library>:/files -p 8000:8000 hmhrex/tenma`
+`docker create --name=tenma -v </path/to/comic/library>:/tenma/files -p 8000:8000 hmhrex/tenma`
 
 ## Parameters
 
-* `-v </path/to/comic/library>:/files` - Tenma's library directory.
+* `-v </path/to/comic/library>:/tenma/files` - Tenma's library directory.
 * `-p <port>:8000` - This is the mapped port for http access. 8000 is recommended, although anything works here. (i.e. `localhost:8000`)
 
 ## Getting set up
