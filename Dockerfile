@@ -18,7 +18,7 @@ RUN \
 
 	# Download and unpack Tenma
 	mkdir $TENMA_INSTALL_DIR && \
-	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1-alpha" && \
+	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.1-alpha" && \
 	unzip $TENMA_INSTALL_DIR/tenma.zip -d /tenma && \
 	mv $TENMA_INSTALL_DIR/Tenma-0.1.1-alpha/* /tenma/ && \
 	rm -f $TENMA_INSTALL_DIR/tenma.zip && \
