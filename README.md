@@ -26,5 +26,6 @@
 
 ## Versions
 
+* **07.31.17:** Updated to use v0.1.2-alpha. 
 * **07.27.17:** Updated to use v0.1.1-alpha.
 * **07.26.17:** First version. Runs Tenma v0.1-alpha.
