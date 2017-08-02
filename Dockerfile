@@ -11,18 +11,19 @@ ENV PATH /usr/local/bin:$PATH
 ENV LIBRARY_PATH=/lib:/usr/lib
 ENV TENMA_INSTALL_DIR=/tenma
 ENV TENMA_MEDIA_DIR=/tenma/files
+ENV TENMA_UNRAR_PATH=/usr/bin/unrar
 
 RUN \
 	# Install alpine packages
-	apk add --no-cache python3-dev curl unzip jpeg-dev zlib-dev gcc make g++ redis supervisor && \
+	apk add --no-cache python3-dev curl unzip jpeg-dev zlib-dev gcc make g++ redis supervisor unrar && \
 
 	# Download and unpack Tenma
 	mkdir $TENMA_INSTALL_DIR && \
-	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.3-alpha" && \
+	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.4-alpha" && \
 	unzip $TENMA_INSTALL_DIR/tenma.zip -d /tenma && \
-	mv $TENMA_INSTALL_DIR/Tenma-0.1.3-alpha/* /tenma/ && \
+	mv $TENMA_INSTALL_DIR/Tenma-0.1.4-alpha/* /tenma/ && \
 	rm -f $TENMA_INSTALL_DIR/tenma.zip && \
-	rm -rf $TENMA_INSTALL_DIR/Tenma-0.1.3-alpha && \
+	rm -rf $TENMA_INSTALL_DIR/Tenma-0.1.4-alpha && \
 
 	# Upgrade pip and install setuptools
 	pip3 install --upgrade pip setuptools && \
