@@ -19,11 +19,11 @@ RUN \
 
 	# Download and unpack Tenma
 	mkdir $TENMA_INSTALL_DIR && \
-	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.4-alpha" && \
+	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.5-alpha" && \
 	unzip $TENMA_INSTALL_DIR/tenma.zip -d /tenma && \
-	mv $TENMA_INSTALL_DIR/Tenma-0.1.4-alpha/* /tenma/ && \
+	mv $TENMA_INSTALL_DIR/Tenma-0.1.5-alpha/* /tenma/ && \
 	rm -f $TENMA_INSTALL_DIR/tenma.zip && \
-	rm -rf $TENMA_INSTALL_DIR/Tenma-0.1.4-alpha && \
+	rm -rf $TENMA_INSTALL_DIR/Tenma-0.1.5-alpha && \
 
 	# Upgrade pip and install setuptools
 	pip3 install --upgrade pip setuptools && \

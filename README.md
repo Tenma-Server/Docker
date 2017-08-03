@@ -26,6 +26,7 @@
 
 ## Versions
 
+* **08.03.17:** Updated to use v0.1.5-alpha. This version adds support for PDF comics.
 * **08.02.17:** Updated to use v0.1.4-alpha. Added unrar for CBR support.
 * **08.02.17:** Updated to use v0.1.3-alpha.
 * **07.31.17:** Updated to use v0.1.2-alpha.
