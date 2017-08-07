@@ -15,15 +15,15 @@ ENV TENMA_UNRAR_PATH=/usr/bin/unrar
 
 RUN \
 	# Install alpine packages
-	apk add --no-cache python3-dev curl unzip jpeg-dev zlib-dev gcc make g++ redis supervisor unrar && \
+	apk add --no-cache python3-dev curl unzip jpeg-dev zlib-dev gcc make g++ redis supervisor unrar bash && \
 
 	# Download and unpack Tenma
 	mkdir $TENMA_INSTALL_DIR && \
-	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.5-alpha" && \
+	curl -o $TENMA_INSTALL_DIR/tenma.zip "https://codeload.github.com/hmhrex/Tenma/zip/v0.1.6-alpha" && \
 	unzip $TENMA_INSTALL_DIR/tenma.zip -d /tenma && \
-	mv $TENMA_INSTALL_DIR/Tenma-0.1.5-alpha/* /tenma/ && \
+	mv $TENMA_INSTALL_DIR/Tenma-0.1.6-alpha/* /tenma/ && \
 	rm -f $TENMA_INSTALL_DIR/tenma.zip && \
-	rm -rf $TENMA_INSTALL_DIR/Tenma-0.1.5-alpha && \
+	rm -rf $TENMA_INSTALL_DIR/Tenma-0.1.6-alpha && \
 
 	# Upgrade pip and install setuptools
 	pip3 install --upgrade pip setuptools && \
@@ -33,12 +33,6 @@ RUN \
 	# Install Tenma requirements
 	pip3 install -r $TENMA_INSTALL_DIR/requirements.txt && \
 	pip3 install redis && \
-
-	# Migrate database
-	python3 /tenma/manage.py migrate && \
-
-	# Create the default user
-	echo "from django.contrib.auth.models import User; User.objects.filter(email='admin@example.com').delete(); User.objects.create_superuser('admin', 'admin@example.com', 'Pegasus!')" | python3 /tenma/manage.py shell && \
 
 	# Fix ownership
 	set -x ; addgroup -g 82 -S www-data ; \
@@ -55,8 +49,11 @@ COPY /etc/supervisor/conf.d/redis.conf /etc/supervisor/conf.d/
 COPY /etc/supervisor/conf.d/celery.conf /etc/supervisor/conf.d/
 COPY /etc/supervisor/conf.d/tenma.conf /etc/supervisor/conf.d/
 
+COPY /tenma/init.sh /
+RUN chmod +x /init.sh
+
 VOLUME $TENMA_MEDIA_DIR
 WORKDIR $TENMA_INSTALL_DIR
 EXPOSE 8000
 
-CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]
+CMD ["bash", "/init.sh"]
