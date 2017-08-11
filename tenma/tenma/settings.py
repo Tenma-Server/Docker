@@ -74,7 +74,10 @@ WSGI_APPLICATION = 'tenma.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'files', 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'media', 'db.sqlite3'),
+        'OPTIONS': {
+            'timeout': 20,
+        },
     }
 }
 

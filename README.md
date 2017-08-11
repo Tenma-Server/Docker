@@ -4,11 +4,12 @@
 
 ## Usage
 
-`docker create --name=tenma -v </path/to/comic/library>:/tenma/files -p 8000:8000 hmhrex/tenma`
+`docker create --name=tenma -v </path/to/comic/library>:/tenma/files -v </path/to/config/directory>:/tenma/media -p 8000:8000 hmhrex/tenma`
 
 ## Parameters
 
 * `-v </path/to/comic/library>:/tenma/files` - Tenma's library directory.
+* `-v </path/to/config/directory>:/tenma/media` - Tenma's configuration directory.
 * `-p <port>:8000` - This is the mapped port for http access. 8000 is recommended, although anything works here. (i.e. `localhost:8000`)
 
 ## Getting set up
@@ -25,6 +26,12 @@
 * Using a ComicVine API key isn't required to use Tenma, but it will vastly improve your experience.
 
 ## Changelog
+
+#### 08.11.17
+* Updated to use [v0.1.7-alpha](https://github.com/Tenma-Server/Tenma/releases/tag/v0.1.7-alpha).
+* Persistent media now stored in `/tenma/media/`.
+* Persistent database now stored in `/tenma/media/db.sqlite3`.
+* Fix for occasional database timeout on import.
 
 #### 08.07.17
 * Updated to use [v0.1.6-alpha](https://github.com/Tenma-Server/Tenma/releases/tag/v0.1.6-alpha).

@@ -1,6 +1,18 @@
 #!/bin/bash
 python3 manage.py generatesecretkey
-if [ -e files/db.sqlite3 ]
+if [ ! -d $TENMA_CONFIG_DIR/CACHE/ ]
+then
+	mkdir $TENMA_CONFIG_DIR/CACHE
+fi
+if [ ! -d $TENMA_CONFIG_DIR/images/ ]
+then
+	mkdir $TENMA_CONFIG_DIR/images
+fi
+if [ ! -d $TENMA_CONFIG_DIR/temp/ ]
+then
+	mkdir $TENMA_CONFIG_DIR/temp
+fi
+if [ -e $TENMA_CONFIG_DIR/db.sqlite3 ]
 then
 	python3 manage.py migrate
 else
