@@ -28,6 +28,9 @@
 ## Changelog
 
 #### 08.11.17
+* Updated to use [v0.1.8-alpha](https://github.com/Tenma-Server/Tenma/releases/tag/v0.1.8-alpha).
+
+#### 08.11.17
 * Updated to use [v0.1.7-alpha](https://github.com/Tenma-Server/Tenma/releases/tag/v0.1.7-alpha).
 * Persistent media now stored in `/tenma/media/`.
 * Persistent database now stored in `/tenma/media/db.sqlite3`.
