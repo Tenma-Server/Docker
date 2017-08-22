@@ -27,6 +27,9 @@
 
 ## Changelog
 
+#### 08.22.17
+* Updated to use [v0.1.11-alpha](https://github.com/Tenma-Server/Tenma/releases/tag/v0.1.11-alpha).
+
 #### 08.16.17
 * Updated to use [v0.1.10-alpha](https://github.com/Tenma-Server/Tenma/releases/tag/v0.1.10-alpha).
 
